@@ -7,6 +7,14 @@ interface ButtonAppProps {
     disabled?: boolean;
 }
 
+/**
+ * Botão customizado com estilos aplicados.
+ * 
+ * @param title Texto exibido no botão.
+ * @param onPress Função chamada ao pressionar o botão.
+ * @param disabled Indica se o botão está desabilitado.
+ * @return Componente de botão estilizado.
+ */
 const ButtonApp = ({title, onPress, disabled}: ButtonAppProps) => {
     return <TouchableOpacity 
         style={disabled ? styles.buttonDisabled : styles.button}

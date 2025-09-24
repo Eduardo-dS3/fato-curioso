@@ -6,6 +6,12 @@ interface TextInputAppProps {
     onChangeText?: (text: string) => void;
 }
 
+/**
+ * Componente de entrada de texto estilizado.
+ * @param value Valor atual do texto.
+ * @param onChangeText Função chamada quando o texto é alterado.
+ * @return Componente de entrada de texto estilizado. 
+ */
 const TextInputApp = ({value, onChangeText}: TextInputAppProps) => {
     return <TextInput 
         value={value}

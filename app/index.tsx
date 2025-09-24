@@ -6,7 +6,7 @@ import TitleApp from "@/components/titleApp";
 import ViewAnswer from "@/components/viewAnswer";
 import { generateCuriousFact } from "@/services/ia/generator";
 import React from "react";
-import { View } from "react-native";
+import { Keyboard, View } from "react-native";
 
 export default function Index() {
 
@@ -15,8 +15,8 @@ export default function Index() {
   const [isLoading, setIsLoading] = React.useState(false);
 
   const handlePress = async () => {
-      if(tema.length<=4) {
-        alert('Por favor, informe um tema com mais de 4 caracteres.');
+      if(tema.length<=2) {
+        alert('Por favor, informe um tema com mais de 2 caracteres.');
         return;
       }
       setIsLoading(true);
@@ -25,6 +25,9 @@ export default function Index() {
       setTema('');
       setAnswer(result || 'Não consegui gerar um fato curioso, tente novamente.');
       setIsLoading(false);
+
+      //Fechar o teclado
+      Keyboard.dismiss();
   }
 
   return (
@@ -36,7 +39,7 @@ export default function Index() {
       <ButtonApp 
         title={isLoading ? 'Gerando...' : 'Gerar Fato Curioso'}
         onPress={handlePress}
-        disabled={tema.length<=4} />
+        disabled={tema.length<=2} />
       {answer && <ViewAnswer answer={answer} />}
     </View>
   );
